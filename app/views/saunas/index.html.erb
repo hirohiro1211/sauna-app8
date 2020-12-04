@@ -1,0 +1,32 @@
+<main class="main">
+  <div class="inner">
+   <% if user_signed_in? %> 
+       <div class="greeting">
+         <%="こんにちは、#{current_user.name}さん" %> 
+       </div>
+       <% if @plans %>
+        <% @plans.each do |plan| %>
+        <div>
+         <%= plan.date %><span>、</span><span><%= plan.time_plan.name %></span><span>に</span>
+         <%= link_to plan.sauna.name, sauna_path(plan.sauna.id), class: :index_sauna %>
+         <span>で予約してます！</span>
+        </div>
+        <% end %>
+        <% end %>
+     <% else %> 
+     <% end %> 
+
+     <% if admin_signed_in? %>
+       <div class="greeting">
+        <%="こんにちは、#{current_admin.name}さん" %>
+        </div>
+        
+      <%= @plans %>
+
+     <% end %> 
+     <p class="sauna_title">サウナ店舗一覧</p>
+    <div class="card__wrapper">
+        <%= render partial: "sauna", collection: @saunas %>
+    </div>
+  </div>
+</main> 

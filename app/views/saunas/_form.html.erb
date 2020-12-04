@@ -1,0 +1,48 @@
+<%= form_with(model: @sauna, local: true) do |f|%>
+
+  <div class="field">
+    <%= f.label :name, "銭湯店舗名称" %><br />
+    <%= f.text_field :name %>
+  </div>
+
+<div class="field">
+    <%= f.label :address, "住所" %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :business_hours, "営業時間" %><br />
+    <%= f.text_field :business_hours %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :sauna_deg, "サウナ温度" %><br />
+    <%= f.text_field :sauna_deg %>
+  </div>
+
+  <div class="field">
+    <%= f.label :water_deg, "人数制限" %><br />
+    <%= f.text_field :water_deg %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "サウナ料金" %><br />
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time_limit, "時間制限" %><br />
+    <%= f.text_field :time_limit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "サウナ店舗画像" %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+  
+<% end %>

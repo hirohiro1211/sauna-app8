@@ -1,0 +1,46 @@
+<main class="main">
+  <div class="inner">
+   <p class="show_tittle">サウナ店舗詳細</p>
+    <div class="prototype__wrapper">
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if admin_signed_in? && current_admin.id == @sauna.admin_id %>
+        <div class="prototype__manage">
+           <%= link_to "編集する", edit_sauna_path, class: :prototype__btn %>
+           <%= link_to "削除する", sauna_path(@sauna.id), method: :delete ,class: :prototype__btn %>
+        </div>
+      <% end %>
+      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <p class="prototype__hedding">
+      </p>
+      <div class="prototype__image">
+          <%= image_tag @sauna.image %>
+      </div>
+
+      <div class="prototype__body">
+          <p class="detail__title">サウナ店舗名:  <%= @sauna.name %></p>
+          <p class="detail__title">サウナ住所:  <%= @sauna.address %></p>
+          <p class="detail__title">営業時間:   <%= @sauna.business_hours %></p>
+          <p class="detail__title">サウナ温度(℃):  <%= @sauna.sauna_deg %></p>
+          <p class="detail__title">サウナ料金(円):  <%= @sauna.price %></p>
+          <p class="detail__title">制限時間(h):   <%= @sauna.time_limit %></p>
+          <p class="detail__title">人数制限(人):  <%= @sauna.water_deg %></p>
+      </div>
+    </div>
+
+    <% if user_signed_in? %> 
+     <p class="show_tittle">予約フォーム</p>
+    <div class="plan_form">
+     <%= form_with(model: [@sauna, @plan], local: true) do |f| %>
+     <%= f.label :日付を選択, class: 'lavel' %>
+     <%= f.date_field :date, class: 'date-select' %>
+     <div class="weight-bold-text">
+      予定時刻の入力
+        <%= f.collection_select(:time_plan_id, TimePlan.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+     <%= f.submit '予約' %>
+     <% end %>
+    </div>
+    <% else %>
+    <a href="/users/sign_in">予約の場合はこちらよりログインして下さい</a>
+    <% end %>
+  </div>
+</main>
