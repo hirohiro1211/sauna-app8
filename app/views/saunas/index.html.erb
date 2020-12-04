@@ -20,10 +20,8 @@
        <div class="greeting">
         <%="こんにちは、#{current_admin.name}さん" %>
         </div>
-        
-      <%= @plans %>
-
      <% end %> 
+     
      <p class="sauna_title">サウナ店舗一覧</p>
     <div class="card__wrapper">
         <%= render partial: "sauna", collection: @saunas %>

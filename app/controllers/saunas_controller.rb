@@ -4,9 +4,6 @@ class SaunasController < ApplicationController
     if user_signed_in?
     @plans = Plan.where(" date > ?",Date.today).where(user_id: current_user.id).order(date: "ASC")
     end
-    if admin_signed_in?
-    @plans = Plan.where(" date > ?",Date.today).count
-    end
   end
   
   def new
