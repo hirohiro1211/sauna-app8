@@ -37,7 +37,7 @@ https://sauna-app8.herokuapp.com/
 # 使用技術
  ・Ruby on Rails  
  ・HTML  
- ・CSS 
+ ・CSS  
  ・JavaScript
 
 # ER図
@@ -89,5 +89,5 @@ https://sauna-app8.herokuapp.com/
 |date       |integer  |NOT NULL     |
 |time_plan  |integer  |NOT NULL     |
 ### Association
--belongs_to :user
+-belongs_to :user  
 -belongs_to :sauna
