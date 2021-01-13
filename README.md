@@ -77,7 +77,7 @@ https://sauna-app8.herokuapp.com/
 |business_hours|integer  |NOT NULL     |
 |image         |ActiveStorageで実装     |
 ### Association
--belongs_to :admin
+-belongs_to :admin  
 -has_many :plans
 
 
